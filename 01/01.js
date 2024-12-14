@@ -12,13 +12,11 @@ if (IS_TEST) {
 const datum = fs.readFileSync(dataFile, 'utf8').split('\n')
 
 /**
- * Find smallest on the left side
- * Find smallest on the right side
- * Pair the numbers up
- * Find the difference between the pairs
- * Add the distances up
+ * This function finds the absolute difference between two numbers
+ * @param {Number} a The first number
+ * @param {Number} b The second number
+ * @returns The absolute difference between the two numbers
  */
-
 const difference = (a, b) => {
   return Math.abs(a - b);
 }
