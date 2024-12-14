@@ -10,3 +10,4 @@ if (IS_TEST) {
 }
 
 const datum = fs.readFileSync(dataFile, 'utf8').split('\n')
+console.log(datum)
