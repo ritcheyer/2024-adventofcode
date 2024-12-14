@@ -11,15 +11,6 @@ if (IS_TEST) {
 
 const datum = fs.readFileSync(dataFile, 'utf8').split('\n')
 
-/**
- * This function finds the absolute difference between two numbers
- * @param {Number} a The first number
- * @param {Number} b The second number
- * @returns The absolute difference between the two numbers
- */
-const difference = (a, b) => {
-  return Math.abs(a - b);
-}
 
 /**
  * Split the digits,
@@ -45,7 +36,7 @@ const splitDigits = (num) => {
   let sum = 0;
   // find the difference between the pairs
   for (let i = 0; i < leftSideArray.length; i++) {
-    sum += difference(leftSideArray[i], rightSideArray[i]);
+    sum += Math.abs(leftSideArray[i] - rightSideArray[i]);
   }
 
   // log out the sum
