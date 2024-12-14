@@ -32,11 +32,22 @@ const splitDigits = (num) => {
   leftSideArray.sort();
   rightSideArray.sort();
 
+  let combinedArray = [];
   let sum = 0;
-  // find the difference between the pairs
+  // Find the matching numbers in the right side array that match the index of the left array.
   for (let i = 0; i < leftSideArray.length; i++) {
-    sum += Math.abs(leftSideArray[i] - rightSideArray[i]);
+
+    matchingIndex = leftSideArray.filter((num) => num === rightSideArray[i]);
+
+    if (matchingIndex.length !== 0) {
+      combinedArray.push(matchingIndex);
+    }
+    combinedArray = combinedArray.flat();
   }
+
+  combinedArray.forEach((num) => {
+    sum += num;
+  });
 
   // log out the sum
   console.log(sum);
