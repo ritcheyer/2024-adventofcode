@@ -45,17 +45,14 @@ const splitDigits = (num) => {
   rightSideArray.sort();
 
   let sum = 0;
-
+  // find the difference between the pairs
   for (let i = 0; i < leftSideArray.length; i++) {
     sum += difference(leftSideArray[i], rightSideArray[i]);
   }
 
+  // log out the sum
   console.log(sum);
 
 }
 
-const findSmallest = (arr, index) => {
-  splitDigits(arr);
-};
-
-findSmallest(datum, datum.length);
+splitDigits(datum);
