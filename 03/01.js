@@ -4,9 +4,9 @@ const isTest = false;
 
 // turn the data into an array
 if (isTest) {
-  dataFile = `${__dirname}/data/test.txt`;
+  dataFile = `${__dirname}/data/demo.txt`;
 } else {
-  dataFile = `${__dirname}/data/input.txt`;
+  dataFile = `${__dirname}/data/data.txt`;
 }
 const datum = fs.readFileSync(dataFile, 'utf8').toString();
 
