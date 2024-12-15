@@ -10,4 +10,13 @@ if (IS_TEST) {
 }
 
 const datum = fs.readFileSync(dataFile, 'utf8').split('\n')
-console.log(datum)
+
+const convertToNumber = (element) => {
+  return Number(element);
+}
+
+const runProgram = (data) => {
+  console.log(data);
+};
+
+runProgram(datum);
