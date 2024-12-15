@@ -21,26 +21,22 @@ function difference(a, b) {
   return Math.abs(a - b);
 }
 
-const isSetSafe = (current, next, setDirection) => {
+const isSetSafe = (current, next, initialDirection) => {
   if (next === undefined) return true;
 
-  if (difference(current, next) === 0) {
+  // Eliminate pairs if the difference is 0 OR
+  // Eliminate pairs if the difference is greater than 3
+  if (difference(current, next) === 0 || difference(current, next) > 3) {
     return false;
   }
 
-  // Eliminate pairs when the difference is greater than 3
-  if (difference(current, next) > 3) {
-    return false;
-  }
-
-  // Eliminate pairs when the direction changes
-  // Determine the direction of the current step
-  let currentDirection = current - next > 0 ? 'down' : 'up';
-  if (setDirection !== currentDirection) {
+  // Eliminate pairs if the direction changes
+  const currentDirection = current - next > 0 ? 'down' : 'up';
+  if (initialDirection !== currentDirection) {
     return false;
   }
   return true;
-}
+};
 
 const isRowSafe = (row) => {
   let setDirection = row[0] > row[1] ? 'down' : 'up';

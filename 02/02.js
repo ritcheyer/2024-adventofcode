@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { isSet } = require('util/types');
 
-const isTest = true;
+const isTest = false;
 
 // turn the data into an array
 if (isTest) {
@@ -45,11 +45,14 @@ const isSetSafe = (current, next, initialDirection) => {
 
 const isRowSafe = (row) => {
   const initialDirection = row[0] > row[1] ? 'down' : 'up';
+
   for (let y = 0; y < row.length; y++) {
     let current = row[y];
     let next = row[y + 1];
 
-    if (!isSetSafe(current, next, initialDirection)) return false;
+    if (!isSetSafe(current, next, initialDirection)) {
+      return false;
+    }
   }
   return true;
 };
@@ -60,10 +63,24 @@ const runProgram = (data) => {
 
     if (isRowSafe(row)) {
       safeReports++;
+    } else {
+
+      /**
+       * can i remove 1 value from the array and check if the array is still safe?
+       */
+      for (let z = 0; z < row.length; z++) {
+        let rowCopy = [...row];
+        rowCopy.splice(z, 1);
+
+        if (isRowSafe(rowCopy)) {
+          safeReports++;
+          break;
+        };
+      }
     }
   }
 
-  console.log(data);
+  // console.log(data);
   console.log('safeReports', safeReports);
 };
 
