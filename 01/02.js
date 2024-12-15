@@ -11,6 +11,8 @@ if (isTest) {
 
 const datum = fs.readFileSync(dataFile, 'utf8').split('\n')
 
+// End Setup ============================================================
+
 /**
  * Split the digits,
  * @returns {Array} of the split digits as numbers.

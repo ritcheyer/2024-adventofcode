@@ -11,6 +11,8 @@ if (isTest) {
 }
 const datum = fs.readFileSync(dataFile, 'utf8').toString().split('\n');
 
+// End Setup ============================================================
+
 let safeReports = 0;
 
 const convertToNumber = (element) => {
