@@ -1,10 +1,10 @@
 const fs = require('fs');
 const { isSet } = require('util/types');
 
-const IS_TEST = false;
+const isTest = false;
 
 // turn the data into an array
-if (IS_TEST) {
+if (isTest) {
   dataFile = `${__dirname}/data/test.txt`;
 } else {
   dataFile = `${__dirname}/data/input.txt`;

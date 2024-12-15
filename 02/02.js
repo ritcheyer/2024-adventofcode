@@ -1,15 +1,15 @@
 const fs = require('fs');
 
-const IS_TEST = true;
+const isTest = true;
 
 // turn the data into an array
-if (IS_TEST) {
+if (isTest) {
   dataFile = `${__dirname}/data/test.txt`;
 } else {
   dataFile = `${__dirname}/data/input.txt`;
 }
 
-const datum = fs.readFileSync(dataFile, 'utf8').split('\n')
+const datum = fs.readFileSync(dataFile, 'utf8').toString().split('\n');
 
 const convertToNumber = (element) => {
   return Number(element);
