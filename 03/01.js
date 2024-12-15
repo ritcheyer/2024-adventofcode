@@ -1,7 +1,6 @@
 const fs = require('fs');
-const { isSet } = require('util/types');
 
-const isTest = true;
+const isTest = false;
 
 // turn the data into an array
 if (isTest) {
@@ -9,13 +8,23 @@ if (isTest) {
 } else {
   dataFile = `${__dirname}/data/input.txt`;
 }
-const datum = fs.readFileSync(dataFile, 'utf8').toString().split('\n');
+const datum = fs.readFileSync(dataFile, 'utf8').toString();
 
 // End Setup ============================================================
 
 const runProgram = (data) => {
+  const re = /(mul\(\d*,\d*\))/g;
+  const found = data.match(re);
 
-  console.log(data);
+  let sum = 0;
+
+  for (let index = 0; index < found.length; index++) {
+    const element = found[index];
+    const [a, b] = element.match(/\d+/g);
+    sum = sum + (a * b);
+  }
+
+  console.log(sum);
 };
 
 runProgram(datum);
